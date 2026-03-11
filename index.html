@@ -16,6 +16,7 @@
 body {
   background: #0a0a0a;
   color: #fff;
+  padding-top: 70px; /* push content below fixed header */
 }
 
 /* Header */
@@ -50,7 +51,7 @@ header {
   filter: drop-shadow(0 0 6px #00e5ff);
 }
 
-/* Navigation */
+/* Desktop Navigation */
 .nav-menu {
   list-style: none;
   display: flex;
@@ -76,12 +77,14 @@ header {
 
 /* Hero section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;   /* allow growth */
+  height: auto;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 80px 20px;  /* spacing around content */
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
 }
 .hero::before,
@@ -120,8 +123,9 @@ header {
   box-shadow: 0 0 20px rgba(0,198,255,0.4);
   background: rgba(0,0,0,0.4);
   animation: fadeUp 1.5s ease, glow 2s infinite;
-  max-width: 85%;
+  max-width: 95%;
   margin: 0 auto;
+  word-wrap: break-word;
 }
 @keyframes glow {
   0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
@@ -129,37 +133,13 @@ header {
   100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
 }
 .hero-content h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 18px;
 }
 .hero-content p {
   font-size: 1rem;
   margin-bottom: 25px;
   line-height: 1.6;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: linear-gradient(45deg, #00c8ff00, #0073ff08);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 14px;
-  transition: 0.3s;
-  margin: 6px;
-}
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0,200,255,0.8);
-}
-.btn-icon {
-  width: 22px;
-  height: 22px;
-  filter: drop-shadow(0 0 4px #000404);
 }
 
 /* Animations */
@@ -178,20 +158,49 @@ header {
   margin-top: 40px;
 }
 
-/* Responsive adjustments */
+/* Mobile bottom nav */
+.mobile-nav {
+  display: none;
+}
 @media (max-width: 768px) {
+  /* Hide desktop nav */
   .nav-menu {
+    display: none;
+  }
+
+  /* Bottom nav bar */
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 10px 0;
+    border-top: 2px solid #00e5ff;
+    z-index: 999;
+  }
+  .mobile-nav li {
+    list-style: none;
+  }
+  .mobile-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
-    padding: 10px 0;
   }
-  .nav-icon {
+  .mobile-nav .nav-icon {
     width: 22px;
     height: 22px;
+    margin-bottom: 4px;
   }
+
+  /* Hero content adjustments */
   .hero-content {
-    max-width: 95%;
     padding: 18px 14px;
   }
   .hero-content h1 {
@@ -199,17 +208,6 @@ header {
   }
   .hero-content p {
     font-size: 0.9rem;
-  }
-  .btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 13px;
-    padding: 10px;
-    margin: 8px 0;
-  }
-  .btn-icon {
-    width: 20px;
-    height: 20px;
   }
 }
 </style>
@@ -243,16 +241,20 @@ header {
       From luxurious rooms to breathtaking ocean views, every detail is designed with your comfort in mind.
       Your paradise experience starts now and enjoy every moment!
     </p>
-    <a href="about.html" class="btn"><img src="7.png" alt="About Us Icon" class="btn-icon"> About Us</a>
-    <a href="reservation.html" class="btn"><img src="6.png" alt="Book Icon" class="btn-icon"> Book Your Stay</a>
-    <a href="contact.html" class="btn"><img src="8.png" alt="Contact Icon" class="btn-icon"> Contact</a>
-    <a href="receipt1.html" class="btn"><img src="1.png" alt="Receipt Icon" class="btn-icon"> Receipt</a>
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
 </footer>
+
+<!-- Mobile bottom nav -->
+<ul class="mobile-nav">
+  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+  <li><a href="reservation.html"><img src="6.png" alt="Book" class="nav-icon"> Book</a></li>
+  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+  <li><a href="receipt1.html"><img src="1.png" alt="Receipt" class="nav-icon"> Receipt</a></li>
+</ul>
 
 </body>
 </html>
