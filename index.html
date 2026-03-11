@@ -7,208 +7,62 @@
 
 <style>
 /* Reset & base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-}
-body {
-  background: #0a0a0a;
-  color: #fff;
-  padding-top: 70px; /* push content below fixed header */
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+body { background:#0a0a0a; color:#fff; padding-top:70px; }
 
 /* Header */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-}
-.container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-}
+header { position:fixed; width:100%; top:0; z-index:999; background:rgba(0,0,0,0.6); backdrop-filter:blur(10px); }
+.container { width:90%; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:12px 0; }
 
 /* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  font-weight: bold;
-  color: #00e5ff;
-}
-.logo-img {
-  width: 40px;
-  margin-right: 8px;
-  filter: drop-shadow(0 0 6px #00e5ff);
-}
+.logo { display:flex; align-items:center; font-size:22px; font-weight:bold; color:#00e5ff; }
+.logo-img { width:40px; margin-right:8px; filter:drop-shadow(0 0 6px #00e5ff); }
 
-/* Desktop Navigation */
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-.nav-menu li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s;
-}
-.nav-menu li a:hover {
-  color: #00e5ff;
-}
-.nav-icon {
-  width: 26px;
-  height: 26px;
-  margin-right: 6px;
-  filter: drop-shadow(0 0 4px #00e5ff);
-}
+/* Desktop nav */
+.nav-menu { list-style:none; display:flex; gap:20px; }
+.nav-menu li a { text-decoration:none; color:#fff; font-size:16px; display:flex; align-items:center; transition:color 0.3s; }
+.nav-menu li a:hover { color:#00e5ff; }
+.nav-icon { width:26px; height:26px; margin-right:6px; filter:drop-shadow(0 0 4px #00e5ff); }
 
-/* Hero section */
-.hero {
-  min-height: 100vh;   /* allow growth */
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;  /* spacing around content */
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
-}
-.hero::before,
-.hero::after,
-.hero .slide1,
-.hero .slide2 {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-size: cover;
-  background-position: center;
-  animation: fade 16s infinite;
-  animation-fill-mode: both;
-  z-index: -1;
-}
-.hero::before { background-image: url('1.jpg'); animation-delay: 0s; }
-.hero::after { background-image: url('2.jpg'); animation-delay: 4s; }
-.hero .slide1 { background-image: url('3.jpg'); animation-delay: 8s; }
-.hero .slide2 { background-image: url('4.jpg'); animation-delay: 12s; }
-
-@keyframes fade {
-  0% {opacity:0;} 5% {opacity:1;} 25% {opacity:1;}
-  30% {opacity:0;} 100% {opacity:0;}
-}
+/* Hero */
+.hero { min-height:100vh; height:auto; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; padding:80px 20px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)); }
+.hero::before,.hero::after,.hero .slide1,.hero .slide2 { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; animation:fade 16s infinite; animation-fill-mode:both; z-index:-1; }
+.hero::before { background-image:url('1.jpg'); animation-delay:0s; }
+.hero::after { background-image:url('2.jpg'); animation-delay:4s; }
+.hero .slide1 { background-image:url('3.jpg'); animation-delay:8s; }
+.hero .slide2 { background-image:url('4.jpg'); animation-delay:12s; }
+@keyframes fade { 0%{opacity:0;} 5%{opacity:1;} 25%{opacity:1;} 30%{opacity:0;} 100%{opacity:0;} }
 
 /* Hero content */
-.hero-content {
-  position: relative;
-  display: inline-block;
-  padding: 28px 32px;
-  text-align: center;
-  color: white;
-  border-radius: 20px;
-  border: 2px solid #00c6ff;
-  box-shadow: 0 0 20px rgba(0,198,255,0.4);
-  background: rgba(0,0,0,0.4);
-  animation: fadeUp 1.5s ease, glow 2s infinite;
-  max-width: 95%;
-  margin: 0 auto;
-  word-wrap: break-word;
-}
-@keyframes glow {
-  0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
-  50% { box-shadow: 0 0 35px rgba(0,198,255,0.8); }
-  100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
-}
-.hero-content h1 {
-  font-size: 2rem;
-  margin-bottom: 18px;
-}
-.hero-content p {
-  font-size: 1rem;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
+.hero-content { position:relative; display:inline-block; padding:28px 32px; text-align:center; color:white; border-radius:20px; border:2px solid #00c6ff; box-shadow:0 0 20px rgba(0,198,255,0.4); background:rgba(0,0,0,0.4); animation:fadeUp 1.5s ease, glow 2s infinite; max-width:95%; margin:0 auto; word-wrap:break-word; }
+@keyframes glow { 0%{box-shadow:0 0 15px rgba(0,198,255,0.4);} 50%{box-shadow:0 0 35px rgba(0,198,255,0.8);} 100%{box-shadow:0 0 15px rgba(0,198,255,0.4);} }
+.hero-content h1 { font-size:2rem; margin-bottom:18px; }
+.hero-content p { font-size:1rem; margin-bottom:25px; line-height:1.6; }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:linear-gradient(45deg,#00c8ff00,#0073ff08); color:#fff; text-decoration:none; border-radius:30px; font-size:14px; transition:0.3s; margin:6px; }
+.btn:hover { transform:scale(1.05); box-shadow:0 0 15px rgba(0,200,255,0.8); }
+.btn-icon { width:22px; height:22px; filter:drop-shadow(0 0 4px #000404); }
 
 /* Animations */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(50px); }
-  to { opacity:1; transform:translateY(0); }
-}
+@keyframes fadeUp { from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);} }
 
 /* Footer */
-.footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
-  margin-top: 40px;
-}
+.footer { background:#111; color:#fff; text-align:center; padding:15px 0; font-size:14px; margin-top:40px; }
 
-/* Mobile bottom nav */
-.mobile-nav {
-  display: none;
-}
-@media (max-width: 768px) {
-  /* Hide desktop nav */
-  .nav-menu {
-    display: none;
-  }
-
-  /* Bottom nav bar */
-  .mobile-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.85);
-    padding: 10px 0;
-    border-top: 2px solid #00e5ff;
-    z-index: 999;
-  }
-  .mobile-nav li {
-    list-style: none;
-  }
-  .mobile-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .mobile-nav .nav-icon {
-    width: 22px;
-    height: 22px;
-    margin-bottom: 4px;
-  }
-
-  /* Hero content adjustments */
-  .hero-content {
-    padding: 18px 14px;
-  }
-  .hero-content h1 {
-    font-size: 1.6rem;
-  }
-  .hero-content p {
-    font-size: 0.9rem;
-  }
+/* Mobile nav under logo */
+.mobile-nav { display:none; }
+@media (max-width:768px) {
+  .nav-menu { display:none; }
+  .mobile-nav { display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; margin-top:10px; }
+  .mobile-nav li { list-style:none; }
+  .mobile-nav a { color:#fff; text-decoration:none; font-size:13px; display:flex; flex-direction:column; align-items:center; margin:4px; }
+  .mobile-nav .nav-icon { width:22px; height:22px; margin-bottom:4px; }
+  .hero-content { padding:18px 14px; }
+  .hero-content h1 { font-size:1.6rem; }
+  .hero-content p { font-size:0.9rem; }
+  .btn { width:100%; justify-content:center; font-size:13px; padding:10px; margin:8px 0; }
+  .btn-icon { width:20px; height:20px; }
 }
 </style>
 </head>
@@ -221,6 +75,7 @@ header {
       <img src="2.png" alt="Paradise Beach Resort Logo" class="logo-img">
       Paradise Beach Resort
     </div>
+    <!-- Desktop nav -->
     <ul class="nav-menu">
       <li><a href="index.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
       <li><a href="room.html"><img src="5.png" alt="Rooms" class="nav-icon"> Rooms</a></li>
@@ -229,6 +84,14 @@ header {
       <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
     </ul>
   </nav>
+  <!-- Mobile nav under logo -->
+  <ul class="mobile-nav">
+    <li><a href="index.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
+    <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+    <li><a href="reservation.html"><img src="6.png" alt="Book" class="nav-icon"> Book</a></li>
+    <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+    <li><a href="receipt1.html"><img src="1.png" alt="Receipt" class="nav-icon"> Receipt</a></li>
+  </ul>
 </header>
 
 <section class="hero">
@@ -241,20 +104,18 @@ header {
       From luxurious rooms to breathtaking ocean views, every detail is designed with your comfort in mind.
       Your paradise experience starts now and enjoy every moment!
     </p>
-  </div>
+    <!-- Buttons inside hero content -->
+    <a href="about.html" class="btn"><img src="7.png" alt="About Us Icon" class="btn-icon"> About Us</a>
+    <a href="reservation.html" class="btn"><img src="6.png" alt="Book Icon" class="btn-icon"> Book Your Stay</a>
+    <a href="contact.html" class="btn"><img src="8.png" alt="Contact Icon" class="btn-icon"> Contact</a>
+    <a href="receipt1.html" class="btn"><img src="1.png" alt="Receipt Icon" class="btn-icon"> Receipt</a
+
+    </div>
 </section>
 
 <footer class="footer">
   <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
 </footer>
-
-<!-- Mobile bottom nav -->
-<ul class="mobile-nav">
-  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
-  <li><a href="reservation.html"><img src="6.png" alt="Book" class="nav-icon"> Book</a></li>
-  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
-  <li><a href="receipt1.html"><img src="1.png" alt="Receipt" class="nav-icon"> Receipt</a></li>
-</ul>
 
 </body>
 </html>
